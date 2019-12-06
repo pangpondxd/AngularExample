@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../../services/todo.service'
 import { from } from 'rxjs';
+import { TouchSequence } from 'selenium-webdriver';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -10,6 +11,7 @@ export class UserComponent implements OnInit {
   private name: string;
   private age: number;
   private email: string;
+  private isEditable:boolean = true;
   private address: {
     street: string,
     city: string,
@@ -43,6 +45,9 @@ export class UserComponent implements OnInit {
     addSkill(skill){
       this.skills.unshift(skill);
       return false;
+    }
+    toggleEdit(){
+      this.isEditable =! this.isEditable;
     }
     removeSkill(skill){
       this.skills.forEach((element, index) => {

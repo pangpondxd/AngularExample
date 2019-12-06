@@ -7,9 +7,14 @@ import { XyzComponent } from './xyz/xyz.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './componemts/user/user.component';
 import { AboutusComponent } from './componemts/aboutus/aboutus.component';
-import { FormsModule } from '@angular/forms'
-import { TodoService } from './services/todo.service'
-import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { TodoService } from './services/todo.service';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule ,Routes} from '@angular/router';
+const appRoutes:Routes = [
+  {path:'', component:UserComponent},
+  {path:'about', component:AboutusComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +27,8 @@ import {HttpClientModule} from '@angular/common/http'
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
